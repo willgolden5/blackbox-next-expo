@@ -1,17 +1,36 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-    provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
 }
 
 datasource db {
-    provider = "sqlite"
-    url      = env("DATABASE_URL")
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
-model Post {
-    id      String @id @default(cuid())
-    title   String
-    content String
+model user {
+  id            Int    @id @default(autoincrement())
+  first_name    String @db.VarChar(255)
+  last_name     String @db.VarChar(255)
+  email         String @unique @db.VarChar(255)
+  phone         String @unique @db.VarChar(255)
+  alpaca_token  String @db.VarChar(255)
+  alpaca_id     String @unique @db.VarChar(255)
+}
+
+model mailing_list {
+  id         Int    @id @default(autoincrement())
+  first_name String @db.VarChar(255)
+  last_name  String @db.VarChar(255)
+  email      String @unique @db.VarChar(255)
+  phone      String @unique @db.VarChar(255)
+}
+
+model algorithms {
+  id           Int     @id @default(autoincrement())
+  name         String  @unique @db.VarChar(255)
+  description  String  @db.VarChar(255)
+  day_trading  Boolean @map("day-trading")
+  day_value    String? @map("day-value") @db.VarChar(255)
+  sharpe_ratio String? @map("sharpe-ratio") @db.VarChar(255)
 }
