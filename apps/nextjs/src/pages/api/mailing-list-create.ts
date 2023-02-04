@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { prisma } from "../../utils/prisma";
-import {z} from "zod";
+import { PrismaClient } from "@prisma/client";
+import { z } from "zod";
 
+const prisma = new PrismaClient();
 const schema = z.object({
   email: z.string(),
   firstName: z.string(),
@@ -11,7 +12,7 @@ const schema = z.object({
 
 export default async function handle(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   const body = await JSON.parse(req.body);
   const { email, firstName, lastName, phone } = schema.parse(body);
@@ -24,15 +25,15 @@ export default async function handle(
   if (existingEntry) {
     res.status(400).json({ message: "already exists" });
   } else {
-  await prisma.mailing_list.create({
-    data: {
-      email: email,
-      first_name: firstName,
-      last_name: lastName,
-      phone: phone,
-    },
-  });
+    await prisma.mailing_list.create({
+      data: {
+        email: email,
+        first_name: firstName,
+        last_name: lastName,
+        phone: phone,
+      },
+    });
 
-  res.status(200).json({ message: "success" });
+    res.status(200).json({ message: "success" });
+  }
 }
-};
