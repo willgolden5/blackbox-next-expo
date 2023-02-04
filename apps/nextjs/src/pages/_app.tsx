@@ -5,12 +5,15 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ChakraProvider } from "@chakra-ui/react";
 import { trpc } from "../utils/trpc";
 import theme from "../theme";
+import DefaultLayout from "../components/layout";
 
 const MyApp: AppType = ({ Component, pageProps: { ...pageProps } }) => {
   return (
     <ClerkProvider {...pageProps}>
       <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
+        <DefaultLayout>
+          <Component {...pageProps} />
+        </DefaultLayout>
       </ChakraProvider>
     </ClerkProvider>
   );
