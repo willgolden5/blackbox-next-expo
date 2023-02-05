@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { getCookie } from "cookies-next";
 import { useEffect, useState } from "react";
+import ComingSoon from "../components/comingSoon";
 
 //this page should show the trading algorithms that we have available to trade with
 
@@ -64,19 +65,19 @@ const TradingAlgorithms = () => {
     }
   };
 
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      const res = await fetch("/api/user/get-account-data");
-      const data = await res.json();
-      setAccountValue({
-        lastTradeValue: 0,
-        portfolioValue: data.account.cash,
-        lastTradeSymbol: "",
-      });
-    }, 2000);
+  // useEffect(() => {
+  //   const interval = setInterval(async () => {
+  //     const res = await fetch("/api/user/get-account-data");
+  //     const data = await res.json();
+  //     setAccountValue({
+  //       lastTradeValue: 0,
+  //       portfolioValue: data.account.cash,
+  //       lastTradeSymbol: "",
+  //     });
+  //   }, 2000);
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   // return (
   //   <Flex
@@ -105,28 +106,7 @@ const TradingAlgorithms = () => {
   //   </Flex>
   // );
 
-  return (
-    <Flex
-      h="100%"
-      alignItems="center"
-      justifyContent="center"
-      direction="column"
-    >
-      <Heading mb={3}>Coming Soon...</Heading>
-      <Text mb={6}>Sign up to be notified blackbox goes live!</Text>
-      <Flex direction="column" w="20%">
-        <Button
-          as="a"
-          colorScheme={"yellow"}
-          type="submit"
-          href="/sign-up"
-          w="100%"
-        >
-          Get Notified
-        </Button>
-      </Flex>
-    </Flex>
-  );
+  return <ComingSoon />;
 };
 
 export default TradingAlgorithms;

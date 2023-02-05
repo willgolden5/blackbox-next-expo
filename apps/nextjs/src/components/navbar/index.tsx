@@ -50,7 +50,7 @@ const NAV_ITEMS: Array<NavItem> = [
 
 export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
-  const user = useUser(); // TODO: use the clerk useUser hook not the custom one
+  const user = useUser();
   const router = useRouter();
 
   const alpacaAuth = () => {
@@ -59,10 +59,6 @@ export default function NavBar() {
       : "https://blackboxquant.com/sign-up";
     return buildAuthLink("6c41c11c0633aff59d424f450ea4969b", redirectLink);
   };
-
-  useEffect(() => {
-    console.log(user);
-  }, [user.user]);
 
   return (
     <Box h="100%">
@@ -110,7 +106,6 @@ export default function NavBar() {
           ) : (
             <Button
               onClick={() => router.push("/sign-up")}
-              as="a"
               variant={"outline"}
               colorScheme="black"
               type="submit"
