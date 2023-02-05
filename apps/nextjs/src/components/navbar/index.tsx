@@ -23,6 +23,7 @@ import alpaca from "../../../public/image-51.png";
 import { buildAuthLink } from "../../utils/alpacaAuthBuilder";
 import { isDevelopment } from "../../utils/utils";
 import ProfileMenu from "./ProfileMenu";
+import { useRouter } from "next/router";
 
 interface NavItem {
   label: string;
@@ -49,6 +50,7 @@ const NAV_ITEMS: Array<NavItem> = [
 export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
   const user: User | null = useUser(); // TODO: use the clerk useUser hook not the custom one
+  const router = useRouter();
 
   const alpacaAuth = () => {
     const redirectLink = isDevelopment
@@ -103,19 +105,14 @@ export default function NavBar() {
             <ProfileMenu user={user} />
           ) : (
             <Button
-              rightIcon={
-                <Box w="78px" h="">
-                  <Image src={alpaca} alt={"logo"} />
-                </Box>
-              }
-              href={alpacaAuth()}
+              onClick={() => router.push("/signup")}
               as="a"
               variant={"outline"}
               colorScheme="black"
               type="submit"
               w="100%"
             >
-              Login with
+              Login
             </Button>
           )}
         </Stack>

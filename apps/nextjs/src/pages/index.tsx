@@ -1,5 +1,6 @@
 "use client";
 import { Button, Flex, Heading, Text } from "@chakra-ui/react";
+import { SignedIn } from "@clerk/nextjs";
 import Image from "next/image";
 import cube from "../../public/cube.png";
 
@@ -25,6 +26,7 @@ export default function Home() {
           Get Notified
         </Button>
       </Flex>
+      {/* <SignedIn>// TODO: put signed in dashboard here</SignedIn> */}
     </Flex>
   );
 }
