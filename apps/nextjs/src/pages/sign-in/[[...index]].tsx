@@ -1,4 +1,4 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { SignIn } from "@clerk/nextjs";
 
 const SignInPage = () => (
