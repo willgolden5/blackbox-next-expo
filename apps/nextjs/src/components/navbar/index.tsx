@@ -17,13 +17,14 @@ import {
   LinkOverlay,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import useUser, { User } from "../../hooks/useUser";
+import { User } from "../../hooks/useUser";
 import cube from "../../../public/cube.png";
-import alpaca from "../../../public/image-51.png";
 import { buildAuthLink } from "../../utils/alpacaAuthBuilder";
 import { isDevelopment } from "../../utils/utils";
 import ProfileMenu from "./ProfileMenu";
 import { useRouter } from "next/router";
+import { useUser } from "@clerk/nextjs";
+import { useEffect } from "react";
 
 interface NavItem {
   label: string;
@@ -49,7 +50,7 @@ const NAV_ITEMS: Array<NavItem> = [
 
 export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
-  const user: User | null = useUser(); // TODO: use the clerk useUser hook not the custom one
+  const user = useUser(); // TODO: use the clerk useUser hook not the custom one
   const router = useRouter();
 
   const alpacaAuth = () => {
@@ -58,6 +59,10 @@ export default function NavBar() {
       : "https://blackboxquant.com/sign-up";
     return buildAuthLink("6c41c11c0633aff59d424f450ea4969b", redirectLink);
   };
+
+  useEffect(() => {
+    console.log(user);
+  }, [user.user]);
 
   return (
     <Box h="100%">
@@ -79,7 +84,6 @@ export default function NavBar() {
         >
           <IconButton
             onClick={onToggle}
-            // icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
           />
@@ -101,8 +105,8 @@ export default function NavBar() {
           direction={"row"}
           spacing={6}
         >
-          {user ? (
-            <ProfileMenu user={user} />
+          {user.isSignedIn === true ? (
+            <ProfileMenu user={user.user} />
           ) : (
             <Button
               onClick={() => router.push("/sign-up")}
