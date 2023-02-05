@@ -7,9 +7,8 @@ import {
   Text,
   useToast,
 } from "@chakra-ui/react";
-import { removeCookies } from "cookies-next";
-import { useRouter } from "next/router";
 import type { UserResource } from "@clerk/types";
+import { useClerk } from "@clerk/nextjs";
 
 type PopoverMenuProps = {
   user: UserResource;
@@ -36,12 +35,11 @@ const MenuRow = ({
 );
 
 const PopoverMenu = ({ user }: PopoverMenuProps) => {
-  const router = useRouter();
   const toast = useToast();
+  const { signOut } = useClerk();
 
   const logout = () => {
-    removeCookies("account");
-    router.push("/");
+    signOut();
     toast({
       title: "Logged out",
       description: "You have been logged out",
