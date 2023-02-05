@@ -54,8 +54,8 @@ export default function NavBar() {
 
   const alpacaAuth = () => {
     const redirectLink = isDevelopment
-      ? "http://localhost:3000/signup"
-      : "https://blackboxquant.com/signup";
+      ? "http://localhost:3000/sign-up"
+      : "https://blackboxquant.com/sign-up";
     return buildAuthLink("6c41c11c0633aff59d424f450ea4969b", redirectLink);
   };
 
@@ -105,7 +105,7 @@ export default function NavBar() {
             <ProfileMenu user={user} />
           ) : (
             <Button
-              onClick={() => router.push("/signup")}
+              onClick={() => router.push("/sign-up")}
               as="a"
               variant={"outline"}
               colorScheme="black"

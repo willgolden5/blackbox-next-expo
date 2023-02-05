@@ -119,7 +119,7 @@ const TradingAlgorithms = () => {
           as="a"
           colorScheme={"yellow"}
           type="submit"
-          href="/signup"
+          href="/sign-up"
           w="100%"
         >
           Get Notified

@@ -7,6 +7,8 @@ import { isDevelopment } from "../../../utils/utils";
 
 const prisma = new PrismaClient();
 
+// if user
+
 export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse,
@@ -18,8 +20,8 @@ export default async function handle(
     client_id: process.env.ALPACE_CLIENT_ID as string,
     client_secret: process.env.ALPACA_CLIENT_SECRET as string,
     redirect_uri: isDevelopment
-      ? "http://localhost:3000/signup"
-      : "https://blackboxquant.com/signup",
+      ? "http://localhost:3000/sign-up"
+      : "https://blackboxquant.com/sign-up",
   };
 
   try {
