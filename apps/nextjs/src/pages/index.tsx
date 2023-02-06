@@ -1,6 +1,5 @@
 "use client";
-import { Button, Flex, Heading, Text } from "@chakra-ui/react";
-import ComingSoon from "../components/comingSoon";
+import ComingSoon from "../components/ComingSoon";
 
 export default function Home() {
   {

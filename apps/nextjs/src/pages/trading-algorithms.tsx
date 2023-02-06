@@ -1,16 +1,7 @@
-import {
-  Button,
-  Flex,
-  FormControl,
-  FormLabel,
-  Heading,
-  Input,
-  Text,
-  useToast,
-} from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react";
 import { getCookie } from "cookies-next";
-import { useEffect, useState } from "react";
-import ComingSoon from "../components/comingSoon";
+import { useState } from "react";
+import ComingSoon from "../components/ComingSoon";
 
 //this page should show the trading algorithms that we have available to trade with
 
