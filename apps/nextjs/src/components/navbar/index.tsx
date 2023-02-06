@@ -17,14 +17,12 @@ import {
   LinkOverlay,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import { User } from "../../hooks/useUser";
 import cube from "../../../public/cube.png";
 import { buildAuthLink } from "../../utils/alpacaAuthBuilder";
 import { isDevelopment } from "../../utils/utils";
 import ProfileMenu from "./ProfileMenu";
 import { useRouter } from "next/router";
 import { useUser } from "@clerk/nextjs";
-import { useEffect } from "react";
 
 interface NavItem {
   label: string;

@@ -8,7 +8,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import type { UserResource } from "@clerk/types";
-import { useClerk } from "@clerk/nextjs";
+import { useClerk, useUser } from "@clerk/nextjs";
 
 type PopoverMenuProps = {
   user: UserResource;
@@ -37,6 +37,8 @@ const MenuRow = ({
 const PopoverMenu = ({ user }: PopoverMenuProps) => {
   const toast = useToast();
   const { signOut } = useClerk();
+
+  // get alpaca user and see if they have trade access
 
   const logout = () => {
     signOut();
