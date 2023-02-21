@@ -10,7 +10,18 @@ const TradeDashboard = () => {
 
   if (!userId) {
     // redirect to login page
-    return <SignIn />;
+    return (
+      <Flex h="100%" alignItems="center" justifyContent="center">
+        <Flex
+          h="100%"
+          alignItems="left"
+          justifyContent="center"
+          direction="column"
+        >
+          <SignIn />
+        </Flex>
+      </Flex>
+    );
   }
   return (
     <Flex h="100%" alignItems="center" justifyContent="center">
