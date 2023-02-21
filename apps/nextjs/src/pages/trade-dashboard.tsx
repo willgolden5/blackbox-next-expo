@@ -15,11 +15,11 @@ const TradeDashboard = () => {
     <Flex h="100%" alignItems="center" justifyContent="center">
       <Flex
         h="100%"
-        alignItems="center"
+        alignItems="left"
         justifyContent="center"
         direction="column"
       >
-        <Heading mb={3}>Trade Dashboard</Heading>
+        <Heading mb={3}>Portfolio:</Heading>
         <PortfolioChart />
       </Flex>
     </Flex>
