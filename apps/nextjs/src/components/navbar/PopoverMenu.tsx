@@ -80,7 +80,7 @@ const PopoverMenu = ({ user }: PopoverMenuProps) => {
           Settings
         </Heading>
       </MenuRow>
-      <MenuRow link="#">
+      <MenuRow link="trade-dashboard">
         <Heading as="a" w="100%" fontSize="2xl">
           Dashboard
         </Heading>
