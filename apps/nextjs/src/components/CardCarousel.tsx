@@ -6,19 +6,19 @@ const CardCarousel = () => {
     <Flex w="100%" direction="row" justify="space-between">
       <StrategyCard
         name="Strategy 1"
-        description="This is a strategy"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         author="John Doe"
         id={1}
       />
       <StrategyCard
         name="Strategy 2"
-        description="This is another strategy"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         author="Tom Smith"
         id={2}
       />
       <StrategyCard
         name="Strategy 3"
-        description="This is a third strategy"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         author="John Doe"
         id={3}
       />
