@@ -4,12 +4,9 @@ import CardCarousel from "../components/CardCarousel";
 import PortfolioChart from "../components/charts/PortfolioChart";
 
 const TradeDashboard = () => {
-  // if not authed, redirect to login page
-  // if authed, show the trade dashboard
   const { userId } = useAuth();
 
   if (!userId) {
-    // redirect to login page
     return (
       <Flex h="100%" alignItems="center" justifyContent="center">
         <Flex
