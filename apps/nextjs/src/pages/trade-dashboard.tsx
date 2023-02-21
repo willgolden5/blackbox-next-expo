@@ -1,5 +1,6 @@
 import { Flex, Heading } from "@chakra-ui/react";
 import { SignIn, useAuth } from "@clerk/nextjs";
+import CardCarousel from "../components/CardCarousel";
 import PortfolioChart from "../components/charts/PortfolioChart";
 
 const TradeDashboard = () => {
@@ -20,7 +21,8 @@ const TradeDashboard = () => {
         direction="column"
       >
         <Heading mb={3}>Portfolio:</Heading>
-        <PortfolioChart />
+        <PortfolioChart chartW={600} />
+        <CardCarousel />
       </Flex>
     </Flex>
   );

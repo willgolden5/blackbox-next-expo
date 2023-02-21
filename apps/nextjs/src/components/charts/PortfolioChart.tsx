@@ -9,13 +9,18 @@ const data = [
   { name: "Sun", uv: 6000, pv: 2400, amt: 2400 },
 ];
 
-const PortfolioChart = () => {
+interface PortfolioChartProps {
+  chartW: number;
+  chartH?: number;
+}
+
+const PortfolioChart = ({ chartW, chartH = 300 }: PortfolioChartProps) => {
   return (
-    <LineChart width={600} height={300} data={data}>
+    <LineChart width={chartW} height={chartH} data={data}>
       <Line type="monotone" dataKey="uv" stroke="#8884d8" />
       <CartesianGrid stroke="#ccc" />
       <XAxis dataKey="name" />
-      <YAxis />
+      {/* <YAxis /> */}
     </LineChart>
   );
 };
